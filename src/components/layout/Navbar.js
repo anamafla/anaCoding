@@ -8,7 +8,8 @@ const Navbar = () => {
     <nav className="nav-wrapper grey darken-3">
       <div className="container">
         <Link to="/" className="brand-logo">
-          Ana Coding
+          <span className="emphasis"> ana </span>
+          <span> &lt; coding &gt; </span>
         </Link>
         <SignedInLinks />
         <SignedOutLinks />
