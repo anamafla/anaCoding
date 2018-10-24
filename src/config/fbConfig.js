@@ -3,7 +3,7 @@ import "firebase/firestore";
 import "firebase/auth";
 
 var config = {
-  apiKey: procces.env.REACT_APP_API_KEY,
+  apiKey: process.env.REACT_APP_API_KEY,
   authDomain: "anacoding2018.firebaseapp.com",
   databaseURL: "https://anacoding2018.firebaseio.com",
   projectId: "anacoding2018",
