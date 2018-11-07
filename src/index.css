@@ -31,3 +31,8 @@ textarea.materialize-textarea:focus:not([readonly]) {
   border-color: #e53935;
   box-shadow: none;
 }
+
+/* icon en PostSummary */
+.fas {
+  color: gray;
+}

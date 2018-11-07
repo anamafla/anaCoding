@@ -23,3 +23,9 @@ export const createPost = post => {
       });
   };
 };
+
+export const deletePost = post => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+  };
+};
