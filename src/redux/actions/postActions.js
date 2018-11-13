@@ -24,8 +24,24 @@ export const createPost = post => {
   };
 };
 
-export const deletePost = post => {
+export const deletePost = (post, id) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
+
+    console.log("Firestore", firestore);
+    console.log("post", post);
+    console.log("id", id);
+
+    firestore
+      .collection("posts")
+      .doc(id)
+      .delete()
+      .then(() => {
+        console.log("Deleting post");
+        dispatch({ type: "DELETE_POST", post });
+      })
+      .catch(err => {
+        dispatch({ type: "DELETE_POST_ERROR", err });
+      });
   };
 };

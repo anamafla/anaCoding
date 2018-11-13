@@ -27,6 +27,10 @@ const postReducer = (state = initState, action) => {
     case "CREATE_POST_ERROR":
       console.log("create post error", action.err);
       return state;
+
+    case "DELETE_POST":
+      console.log("delete post");
+      return state;
     default:
       return state;
   }
