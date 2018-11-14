@@ -1,21 +1,5 @@
 const initState = {
-  posts: [
-    {
-      id: "1",
-      title: "Learning React",
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. "
-    },
-    {
-      id: "2",
-      title: "Learning Redux",
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. "
-    },
-    {
-      id: "3",
-      title: "Learning Firebase",
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. "
-    }
-  ]
+  posts: []
 };
 
 const postReducer = (state = initState, action) => {
@@ -31,6 +15,11 @@ const postReducer = (state = initState, action) => {
     case "DELETE_POST":
       console.log("delete post");
       return state;
+
+    case "DELETE_POST_ERROR":
+      console.log("create post error", action.err);
+      return state;
+
     default:
       return state;
   }

@@ -4,14 +4,10 @@ import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import moment from "moment";
 import { deletePost } from "../../redux/actions/postActions";
+import renderHTML from "react-render-html";
 
 const PostDetails = props => {
-  console.log("props in postDetails", props);
-
   const { post, id } = props;
-
-  console.log("post in postDetails", post);
-  console.log("id in postDetails", id);
 
   if (post) {
     return (
@@ -21,9 +17,17 @@ const PostDetails = props => {
             <span className="card-title red-text text-darken-2">
               {post.title}
             </span>
-            <p>{post.content}</p>
+            <p className="grey-text text-darken-2">{post.summary}</p>
+            <div className="post-content grey-text text-darken-3">
+              {renderHTML(post.content)}
+            </div>
 
-            <button onClick={() => props.deletePost(post, id)}>
+            <button
+              onClick={() => {
+                props.deletePost(post, id);
+                props.history.push("/");
+              }}
+            >
               <i className="fas fa-trash-alt" />
             </button>
           </div>
@@ -46,7 +50,6 @@ const PostDetails = props => {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  //console.log(state);
   const id = ownProps.match.params.id;
   const posts = state.firestore.data.posts;
   const post = posts ? posts[id] : null;

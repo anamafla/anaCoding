@@ -36,3 +36,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 .fas {
   color: gray;
 }
+
+.post-content {
+  padding: 20px 0px 20px 0px;
+}
